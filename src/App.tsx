@@ -13,7 +13,7 @@ import { Routes } from "./routes"
 
 import { useLocalStorage } from "./hooks/useLocalStorage"
 
-import { getReceiptStatus, getEtherScanApi, getNetworkName } from "./utils"
+import { getReceiptStatus, getPolygonScanApi, getNetworkName } from "./utils"
 import { Receipt, ThemeType } from "./types"
 
 import "./App.css"
@@ -105,7 +105,7 @@ const App = () => {
           const status = await getReceiptStatus(
             item.guid,
             apiKey,
-            getEtherScanApi(network)
+            getPolygonScanApi(network)
           )
           if (status === "Pass - Verified") {
             const newReceipts = receipts.map((currentReceipt: Receipt) => {

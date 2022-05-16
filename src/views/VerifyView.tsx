@@ -5,7 +5,7 @@ import {
 } from "@remixproject/plugin"
 import { Formik, ErrorMessage, Field } from "formik"
 
-import { getNetworkName, getEtherScanApi, getReceiptStatus } from "../utils"
+import { getNetworkName, getPolygonScanApi, getReceiptStatus } from "../utils"
 import { SubmitButton } from "../components"
 import { Receipt } from "../types"
 import { CompilationResult } from "@remixproject/plugin-api"
@@ -93,7 +93,7 @@ export const VerifyView: React.FC<Props> = ({
       if (network === "vm") {
         return "Cannot verify in the selected network"
       }
-      const etherscanApi = getEtherScanApi(network)
+      const etherscanApi = getPolygonScanApi(network)
 
       try {
         const contractMetadata = getContractMetadata(
